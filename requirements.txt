@@ -1,0 +1,3 @@
+picamera
+imutils
+opencv-python
