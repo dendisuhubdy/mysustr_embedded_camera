@@ -3,11 +3,15 @@ import time
 from imutils.video import VideoStream
 import imagezmq
 
+raspberry_pi = False
 
 sender = imagezmq.ImageSender()
 
 rpi_name = socket.gethostname()
-picam = VideoStream().start()
+if raspberry_pi:
+    picam = VideoStream(usePiCamera=True).start()
+else:
+    picam = VideoStream().start()
 time.sleep(2.0)
 
 while True:
