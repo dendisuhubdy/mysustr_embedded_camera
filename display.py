@@ -16,8 +16,8 @@ def main():
         pil_img = Image.fromarray(image)
         buff = BytesIO()
         pil_img.save(buff, format="JPEG")
-        new_image_string = base64.b64encode(buff.getvalue()).decode("utf-8")
-        # print(new_image_string)
+        new_image_string = base64.b64encode(buff.getvalue())
+        print(new_image_string)
         redis_image.set("image", new_image_string)
         cv2.imshow(rpi_name, image) # 1 window for each RPi
         cv2.waitKey(1)
